@@ -1,0 +1,18 @@
+parameters:
+
+    # phpass parameters
+    phpass_hash_iterations: 8
+    phpass_portable:        true
+
+services:
+
+    phpass:
+        class: 'Phpass\PasswordHash'
+        arguments:
+            - '%phpass_hash_iterations%'
+            - '%phpass_portable'
+
+    wpd_password_manager:
+        class: 'Ft6k\Bundle\WpDoctrineBundle\User\PasswordManager'
+        arguments:
+            - '@phpass'

@@ -14,6 +14,9 @@
         "friartuck6000/phpass": "^0.3",
         "rikbruil/doctrine-specification": "^1.0"
     },
+    "require-dev": {
+        "symfony/symfony": "^2.8|^3.0"
+    },
     "autoload": {
         "psr-4": {
             "Ft6k\\Bundle\\WpDoctrineBundle\\": "src/"
