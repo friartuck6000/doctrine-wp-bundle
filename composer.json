@@ -1,0 +1,22 @@
+{
+    "name": "friartuck6000/doctrine-wp-bundle",
+    "type": "symfony-bundle",
+    "description": "A Symfony bundle for handling WordPress data with Doctrine",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kyle Tucker",
+            "email": "kyleatucker@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5",
+        "friartuck6000/phpass": "^0.3",
+        "rikbruil/doctrine-specification": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ft6k\\Bundle\\WpDoctrineBundle\\": "src/"
+        }
+    }
+}
