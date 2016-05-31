@@ -1,0 +1,8 @@
+services:
+
+    wpd_mapping_listener:
+        class: 'Ft6k\Bundle\WpDoctrineBundle\EventListener\MappingListener'
+        arguments:
+            - '%wp_prefix%'
+        tags:
+            - { name: 'doctrine.event_listener', event: 'loadClassMetadata' }
