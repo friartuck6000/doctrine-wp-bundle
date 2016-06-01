@@ -15,7 +15,7 @@ class WpDoctrineExtension extends Extension
 {
     public function load(array $configs, ContainerBuilder $container)
     {
-        $processedConfig = $this->processConfiguration(new Config(), $configs);
+        $processedConfig = $this->processConfiguration(new Configuration(), $configs);
 
         // Set container parameters
         $container->setParameter('wp_prefix', $processedConfig['table_prefix']);

@@ -8,7 +8,7 @@ use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 /**
  * @author  Kyle Tucker <kyleatucker@gmail.com>
  */
-class Config implements ConfigurationInterface
+class Configuration implements ConfigurationInterface
 {
     /**
      * {@inheritdoc}
