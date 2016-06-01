@@ -2,6 +2,7 @@
 
 namespace Ft6k\Bundle\WpDoctrineBundle\EventListener;
 
+use Ft6k\Bundle\WpDoctrineBundle\Entity;
 use Doctrine\Common\Persistence\Event\LoadClassMetadataEventArgs;
 use Doctrine\ORM\Mapping\ClassMetadataInfo;
 
@@ -52,6 +53,17 @@ class MappingListener
      */
     protected function getEntityList()
     {
-        return [];
+        return [
+            Entity\Comment::class,
+            Entity\CommentMetaField::class,
+            Entity\Option::class,
+            Entity\Post::class,
+            Entity\PostMetaField::class,
+            Entity\Term::class,
+            Entity\TermRelationship::class,
+            Entity\TermTaxonomy::class,
+            Entity\User::class,
+            Entity\UserMetaField::class,
+        ];
     }
 }
