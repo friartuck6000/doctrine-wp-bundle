@@ -4,6 +4,8 @@ namespace Ft6k\Bundle\WpDoctrineBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Ft6k\Bundle\WpDoctrineBundle\Entity\Helper\PostStatus;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Post
@@ -70,8 +72,10 @@ class Post
      * @var  string
      *
      * @ORM\Column(name="post_status", type="string", length=20, nullable=false)
+     *
+     * @Assert\Choice(callback="getAvailableStatuses")
      */
-    protected $status = 'draft';
+    protected $status = PostStatus::DRAFT;
 
     /**
      * @var  string
@@ -673,6 +677,16 @@ class Post
     }
 
     // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * Get a list of valid post status options.
+     *
+     * @return  array
+     */
+    public static function getAvailableStatuses()
+    {
+        return PostStatus::getDefined();
+    }
 
     public function __construct()
     {
