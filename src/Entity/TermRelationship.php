@@ -103,4 +103,21 @@ class TermRelationship
 
         return $this;
     }
+
+    // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * Shortcut method for getting the relationship's associated term via the
+     * $termTaxonomy property.
+     *
+     * @return  Term|null
+     */
+    public function getTerm()
+    {
+        if ($this->getTermTaxonomy()) {
+            return $this->getTermTaxonomy()->getTerm();
+        }
+
+        return null;
+    }
 }
