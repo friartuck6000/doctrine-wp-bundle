@@ -2,6 +2,7 @@
 
 namespace Ft6k\Bundle\WpDoctrineBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -60,6 +61,15 @@ class TermTaxonomy
      * @ORM\Column(name="parent", type="bigint", nullable=false)
      */
     protected $parentTermId;
+
+    // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * @var  ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="TermRelationship", mappedBy="termTaxonomy", cascade={"all"})
+     */
+    protected $relationships;
 
     // -----------------------------------------------------------------------------------------------------------------
 
@@ -174,5 +184,48 @@ class TermTaxonomy
         }
 
         return $this;
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * @return  ArrayCollection
+     */
+    public function getRelationships()
+    {
+        return $this->relationships;
+    }
+
+    /**
+     * @param  TermRelationship  $relationship
+     * @return  $this
+     */
+    public function addRelationship(TermRelationship $relationship)
+    {
+        if (!$this->relationships->contains($relationship)) {
+            $this->relationships->add($relationship);
+            $relationship->setTermTaxonomy($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param   TermRelationship  $relationship
+     * @return  $this
+     */
+    public function removeRelationship(TermRelationship $relationship)
+    {
+        $this->relationships->removeElement($relationship);
+        $relationship->setTermTaxonomy(null);
+
+        return $this;
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+
+    public function __construct()
+    {
+        $this->relationships = new ArrayCollection();
     }
 }
