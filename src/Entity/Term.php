@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Term
  *
- * @ORM\Entity(repositoryClass="Rb\Specification\Doctrine\SpecificationRepository")
+ * @ORM\Entity(repositoryClass="Ft6k\Bundle\WpDoctrineBundle\EntityRepository\TermRepository")
  * @ORM\Table(name="terms", indexes={
  *   @ORM\Index(name="name", columns={"name"}),
  *   @ORM\Index(name="slug", columns={"slug"})
