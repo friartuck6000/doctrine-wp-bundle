@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Comment
  *
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="Rb\Specification\Doctrine\SpecificationRepository")
  * @ORM\Table(name="comments", indexes={
  *   @ORM\Index(name="comment_post_ID", columns={"comment_post_ID"}),
  *   @ORM\Index(name="comment_approved_date_gmt", columns={"comment_approved", "comment_date_gmt"}),

@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * TermTaxonomy
  *
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="Rb\Specification\Doctrine\SpecificationRepository")
  * @ORM\Table(name="term_taxonomy", uniqueConstraints={
  *   @ORM\UniqueConstraint(name="term_id_taxonomy", columns={"term_id", "taxonomy"}
  * )}, indexes={

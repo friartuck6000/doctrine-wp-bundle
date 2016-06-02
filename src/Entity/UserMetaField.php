@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * UserMetaField
  *
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="Rb\Specification\Doctrine\SpecificationRepository")
  * @ORM\Table(name="usermeta", indexes={
  *   @ORM\Index(name="user_id", columns={"user_id"}),
  *   @ORM\Index(name="meta_key", columns={"meta_key"})

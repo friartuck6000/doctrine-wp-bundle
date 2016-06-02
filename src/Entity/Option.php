@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Option
  *
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="Rb\Specification\Doctrine\SpecificationRepository")
  * @ORM\Table(name="options", uniqueConstraints={
  *   @ORM\UniqueConstraint(name="option_name", columns={"option_name"})
  * })

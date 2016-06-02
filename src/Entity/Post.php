@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Post
  *
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="Rb\Specification\Doctrine\SpecificationRepository")
  * @ORM\Table(name="posts", indexes={
  *   @ORM\Index(name="post_name", columns={"post_name"}),
  *   @ORM\Index(name="type_status_date", columns={"post_type", "post_status", "post_date", "ID"}),

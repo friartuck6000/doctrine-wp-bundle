@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * CommentMetaField
  *
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="Rb\Specification\Doctrine\SpecificationRepository")
  * @ORM\Table(name="commentmeta", indexes={
  *   @ORM\Index(name="comment_id", columns={"comment_id"}),
  *   @ORM\Index(name="meta_key", columns={"meta_key"})

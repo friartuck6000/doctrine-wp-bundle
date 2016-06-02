@@ -11,7 +11,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * User
  *
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="Rb\Specification\Doctrine\SpecificationRepository")
  * @ORM\Table(name="users", indexes={
  *   @ORM\Index(name="user_login_key", columns={"user_login"}),
  *   @ORM\Index(name="user_nicename", columns={"user_nicename"})
