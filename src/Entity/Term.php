@@ -50,7 +50,7 @@ class Term
     /**
      * @var  TermTaxonomy
      *
-     * @ORM\OneToOne(targetEntity="TermTaxonomy", mappedBy="term", cascade={"persist", "remove"}, orphanRemoval=true)
+     * @ORM\OneToOne(targetEntity="TermTaxonomy", mappedBy="term", cascade={"all"}, orphanRemoval=true)
      */
     protected $taxonomy;
 
