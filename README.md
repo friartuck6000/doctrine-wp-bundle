@@ -1,5 +1,9 @@
 # WpDoctrineBundle
 
+[![Latest Stable Version](https://poser.pugx.org/friartuck6000/doctrine-wp-bundle/v/stable)](https://packagist.org/packages/friartuck6000/doctrine-wp-bundle)
+[![Latest Unstable Version](https://poser.pugx.org/friartuck6000/doctrine-wp-bundle/v/unstable)](https://packagist.org/packages/friartuck6000/doctrine-wp-bundle)
+[![Total Downloads](https://poser.pugx.org/friartuck6000/doctrine-wp-bundle/downloads)](https://packagist.org/packages/friartuck6000/doctrine-wp-bundle)
+
 A Symfony bundle for handling WordPress data with Doctrine.
 
 ## Requirements
