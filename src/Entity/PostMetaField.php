@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * PostMetaField
  *
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="Rb\Specification\Doctrine\SpecificationRepository")
  * @ORM\Table(name="postmeta", indexes={
  *   @ORM\Index(name="post_id", columns={"post_id"}),
  *   @ORM\Index(name="meta_key", columns={"meta_key"})

@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Term
  *
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="Ft6k\Bundle\WpDoctrineBundle\EntityRepository\TermRepository")
  * @ORM\Table(name="terms", indexes={
  *   @ORM\Index(name="name", columns={"name"}),
  *   @ORM\Index(name="slug", columns={"slug"})
@@ -50,7 +50,7 @@ class Term
     /**
      * @var  TermTaxonomy
      *
-     * @ORM\OneToOne(targetEntity="TermTaxonomy", mappedBy="term", cascade={"persist", "remove"}, orphanRemoval=true)
+     * @ORM\OneToOne(targetEntity="TermTaxonomy", mappedBy="term", cascade={"all"}, orphanRemoval=true)
      */
     protected $taxonomy;
 

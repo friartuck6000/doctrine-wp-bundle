@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * TermRelationship
  *
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="Ft6k\Bundle\WpDoctrineBundle\EntityRepository\TermRelationshipRepository")
  * @ORM\Table(name="term_relationships", indexes={
  *   @ORM\Index(name="term_taxonomy_id", columns={"term_taxonomy_id"})
  * })
@@ -31,13 +31,13 @@ class TermRelationship
     protected $objectId;
 
     /**
-     * @var  int
+     * @var  TermTaxonomy
      *
-     * @ORM\Column(name="term_taxonomy_id", type="bigint", nullable=false)
+     * @ORM\ManyToOne(targetEntity="TermTaxonomy", inversedBy="relationships")
+     * @ORM\JoinColumn(name="term_taxonomy_id", referencedColumnName="term_taxonomy_id", onDelete="CASCADE", nullable=false)
      * @ORM\Id()
-     * @ORM\GeneratedValue(strategy="NONE")
      */
-    protected $termTaxonomyId;
+    protected $termTaxonomy;
 
     // -----------------------------------------------------------------------------------------------------------------
 
@@ -58,11 +58,11 @@ class TermRelationship
     }
 
     /**
-     * @return  int
+     * @return  TermTaxonomy
      */
-    public function getTermTaxonomyId()
+    public function getTermTaxonomy()
     {
-        return $this->termTaxonomyId;
+        return $this->termTaxonomy;
     }
 
     // -----------------------------------------------------------------------------------------------------------------
@@ -94,17 +94,30 @@ class TermRelationship
     }
 
     /**
-     * @param   int|TermTaxonomy  $termTaxonomy
+     * @param   TermTaxonomy  $termTaxonomy
      * @return  $this
      */
-    public function setTermTaxonomyId($termTaxonomy = 0)
+    public function setTermTaxonomy(TermTaxonomy $termTaxonomy = null)
     {
-        if ($termTaxonomy instanceof TermTaxonomy) {
-            $this->termTaxonomyId = $termTaxonomy->getId();
-        } else {
-            $this->termTaxonomyId = (int) $termTaxonomy;
-        }
+        $this->termTaxonomy = $termTaxonomy;
 
         return $this;
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * Shortcut method for getting the relationship's associated term via the
+     * $termTaxonomy property.
+     *
+     * @return  Term|null
+     */
+    public function getTerm()
+    {
+        if ($this->getTermTaxonomy()) {
+            return $this->getTermTaxonomy()->getTerm();
+        }
+
+        return null;
     }
 }
